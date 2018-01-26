@@ -27,6 +27,7 @@
             </TabItem>
             <TabItem Header="Status"></TabItem>
             <TabItem Header="Pavilion"></TabItem>
+            
             <TabItem Header="Model"></TabItem>
         </TabControl>
     </Grid>
