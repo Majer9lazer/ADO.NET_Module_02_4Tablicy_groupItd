@@ -5,30 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADO.NET_Module_2_Ots_Rezh"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Background="MediumAquamarine">
+        Title="MainWindow" Height="400" Width="525" Background="MediumAquamarine">
     <Grid Margin="3" Background="White">
         <Grid.RowDefinitions>
 
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <TabControl Grid.Row="0">
-            <TabItem Header="Group">
+            <TabItem Header="Group" GotFocus="Group_GotFocus" x:Name="Group">
                 <ListView x:Name="DicGroupListView">
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>
-                                <GridViewColumn Header="GroupId" DisplayMemberBinding="{Binding Path=GroupId}"></GridViewColumn>
-                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
+                                <GridViewColumn Header="GroupId" x:Name="GroupIdColumn" DisplayMemberBinding="{Binding Path=GroupId}"></GridViewColumn>
+                                <GridViewColumn Header="Name" x:Name="NameColumn" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>
                 </ListView>
             </TabItem>
-            <TabItem Header="Status"></TabItem>
-            <TabItem Header="Pavilion"></TabItem>
+            <TabItem Header="Status" x:Name="Status" GotFocus="Status_GotFocus">
+                <ListView x:Name="DicStatusListView">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="StatusId" DisplayMemberBinding="{Binding Path=StatusId}"></GridViewColumn>
+                                <GridViewColumn Header="NameEn" DisplayMemberBinding="{Binding Path=NameEn}"></GridViewColumn>
+                                <GridViewColumn Header="NameRu" DisplayMemberBinding="{Binding Path=NameRu}"></GridViewColumn>
+                                <GridViewColumn Header="StatusTypeId" DisplayMemberBinding="{Binding Path=StatusTypeId}"></GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Header="Pavilion" x:Name="Pavillion" GotFocus="Pavillion_GotFocus">
+                <ListView x:Name="DicPavillionListView">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="PavilionId" DisplayMemberBinding="{Binding Path=PavilionId}"></GridViewColumn>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </TabItem>
             
-            <TabItem Header="Model"></TabItem>
+            <TabItem Header="Model" x:Name="Model" GotFocus="Model_GotFocus">
+                <ListView x:Name="DicModelListView">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="ModelId" DisplayMemberBinding="{Binding Path=ModelId}"></GridViewColumn>
+                                <GridViewColumn Header="Code" DisplayMemberBinding="{Binding Path=Code}"></GridViewColumn>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
+                                <GridViewColumn Header="SeriesId" DisplayMemberBinding="{Binding Path=SeriesId}"></GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </TabItem>
         </TabControl>
+        <Button Content="SqlCommand get Data" Grid.Row="1" HorizontalAlignment="Left" Click="Button_Click"></Button>
+        <Button Content="Конструктор get Data" Grid.Row="1" HorizontalAlignment="Center" Click="Button_Click_1"></Button>
+        <TextBlock TextWrapping="Wrap" x:Name="ErrorOrSuccesTextBlock" Grid.Row="2" Margin="3" Background="AliceBlue"></TextBlock>
     </Grid>
 </Window>
